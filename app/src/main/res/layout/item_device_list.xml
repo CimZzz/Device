@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76.5dp"
+        android:layout_marginBottom="3dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_device"
+            android:id="@+id/deviceImg"
+            android:layout_gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="大叔大婶"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:id="@+id/deviceTitle"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:text="sdaasdsad"
+                android:textColor="#454545"
+                android:textSize="12sp"
+                android:id="@+id/deviceDesc"/>
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="开"
+                android:textColor="#000"
+                android:textSize="12sp"
+                android:id="@+id/deviceStatus"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_switch"
+                android:padding="3dp"
+                android:text="开关"
+                android:textColor="#FFF"
+                android:textSize="10sp"
+                android:id="@+id/deviceSwitch"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_switch"
+                android:layout_marginTop="5dp"
+                android:padding="3dp"
+                android:text="删除"
+                android:textColor="#FFF"
+                android:textSize="10sp"
+                android:id="@+id/deviceDel"/>
+            
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#000"/>
+</LinearLayout>
