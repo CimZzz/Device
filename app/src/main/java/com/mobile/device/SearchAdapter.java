@@ -86,9 +86,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         public ViewHolder(View itemView, final Callback callback) {
             super(itemView);
-            deviceTitle = itemView.findViewById(R.id.deviceTitle);
-            deviceDesc = itemView.findViewById(R.id.deviceDesc);
-            deviceAdded = itemView.findViewById(R.id.deviceAdded);
+            deviceTitle = (TextView) itemView.findViewById(R.id.deviceTitle);
+            deviceDesc = (TextView) itemView.findViewById(R.id.deviceDesc);
+            deviceAdded = (TextView) itemView.findViewById(R.id.deviceAdded);
             deviceAdd = itemView.findViewById(R.id.deviceAdd);
 
             deviceAdd.setOnClickListener(new View.OnClickListener() {

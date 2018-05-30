@@ -44,9 +44,9 @@ public class SearchActivity extends ActionBarUI {
 
     @Override
     protected void onViewInit(Bundle savedInstanceState) {
-        handlerView = findViewById(R.id.refreshHandler);
-        refreshLayout = findViewById(R.id.refresh);
-        searchList = findViewById(R.id.searchList);
+        handlerView = (RefreshHandlerView) findViewById(R.id.refreshHandler);
+        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh);
+        searchList = (RecyclerView) findViewById(R.id.searchList);
         findViewById(R.id.backBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

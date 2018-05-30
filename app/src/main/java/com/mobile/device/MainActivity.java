@@ -23,7 +23,7 @@ public class MainActivity extends ActionBarUI {
     @Override
     protected void onViewInit(Bundle savedInstanceState) {
         search = findViewById(R.id.search);
-        deviceList = findViewById(R.id.deviceList);
+        deviceList = (RecyclerView) findViewById(R.id.deviceList);
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -83,9 +83,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
 
         public ViewHolder(View itemView, final Callback callback) {
             super(itemView);
-            deviceTitle = itemView.findViewById(R.id.deviceTitle);
-            deviceDesc = itemView.findViewById(R.id.deviceDesc);
-            deviceStatus = itemView.findViewById(R.id.deviceStatus);
+            deviceTitle = (TextView) itemView.findViewById(R.id.deviceTitle);
+            deviceDesc = (TextView) itemView.findViewById(R.id.deviceDesc);
+            deviceStatus = (TextView) itemView.findViewById(R.id.deviceStatus);
             deviceSwitch = itemView.findViewById(R.id.deviceSwitch);
             deviceDel = itemView.findViewById(R.id.deviceDel);
 
