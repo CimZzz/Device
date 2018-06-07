@@ -36,5 +36,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
     //fastjson
     compile 'com.alibaba:fastjson:1.2.9'
+
+    compile 'com.bigkoo:svprogresshud:1.0.6'
     testCompile 'junit:junit:4.12'
 }

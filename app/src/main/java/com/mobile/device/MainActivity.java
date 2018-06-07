@@ -4,9 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
+import com.bigkoo.svprogresshud.SVProgressHUD;
+
+import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends ActionBarUI {
     RecyclerView deviceList;
@@ -35,10 +47,107 @@ public class MainActivity extends ActionBarUI {
         deviceList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         adapter = new MainAdapter(new MainAdapter.Callback() {
             @Override
-            public void onSwitch(Device device) {
-                device.isOpen = !device.isOpen;
+            public void onSwitch(final Device device) {
+
+                final SVProgressHUD loadBar = new SVProgressHUD(MainActivity.this);
+                loadBar.showWithStatus("修改设备状态中请稍后");
+                final boolean afterStatus = !device.isOpen;
+                OkHttpClient client = ((MyApplication)getApplication()).client;
+                client.newCall(new Request.Builder()
+                        .url("http://104.224.163.27:8080/ble/servlet/UpdateDevicesServlet")
+                        .post(new FormBody.Builder()
+                                .add("id",device.getUuid())
+                                .add("change_sta",afterStatus ? "0" : "1")
+                                .build())
+                        .build())
+                        .enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        loadBar.dismissImmediately();
+                                        Toast.makeText(MainActivity.this,"修改设备状态失败",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String result = response.body().string();
+                                if(TextUtils.isEmpty(result) || !result.equals("success")) {
+                                    onFailure(null,null);
+                                    return;
+                                }
+
+                                device.setIsOpen(afterStatus);
+                                updateDeviceStatus(device);
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        updateDeviceStatus(device);
+                                        adapter.updateDeviceStatus(device);
+                                        loadBar.dismissImmediately();
+                                        Toast.makeText(MainActivity.this,"修改设备状态成功",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        });
                 updateDeviceStatus(device);
                 adapter.updateDeviceStatus(device);
+            }
+
+            @Override
+            public void onEdit(final Device device) {
+                new EditDialog(MainActivity.this, new EditDialog.Callback() {
+                    @Override
+                    public void onConfirm(final String descStr) {
+                        final SVProgressHUD loadBar = new SVProgressHUD(MainActivity.this);
+                        loadBar.showWithStatus("更改描述中请稍后");
+                        OkHttpClient client = ((MyApplication)getApplication()).client;
+                        client.newCall(new Request.Builder()
+                                .url("http://104.224.163.27:8080/ble/servlet/ModifyDevicesServlet")
+                                .post(new FormBody.Builder()
+                                        .add("id",device.getUuid())
+                                        .add("device_name",device.getDeviceName())
+                                        .add("device_des",descStr)
+                                        .build())
+                                .build())
+                                .enqueue(new Callback() {
+                                    @Override
+                                    public void onFailure(Call call, IOException e) {
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                loadBar.dismissImmediately();
+                                                Toast.makeText(MainActivity.this,"修改描述失败",Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
+
+                                    @Override
+                                    public void onResponse(Call call, Response response) throws IOException {
+                                        String result = response.body().string();
+                                        if(TextUtils.isEmpty(result) || !result.equals("success")) {
+                                            onFailure(null,null);
+                                            return;
+                                        }
+
+                                        device.setDesc(descStr);
+                                        updateDeviceStatus(device);
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                updateDeviceStatus(device);
+                                                adapter.updateDeviceStatus(device);
+                                                loadBar.dismissImmediately();
+                                                Toast.makeText(MainActivity.this,"修改描述成功",Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
+                                });
+                    }
+                }).show(device);
             }
 
             @Override

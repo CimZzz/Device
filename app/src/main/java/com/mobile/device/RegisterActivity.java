@@ -49,11 +49,31 @@ public class RegisterActivity extends Activity {
                     return;
                 }
 
+                if(checkUserExist(userNameTxt)) {
+                    Toast.makeText(RegisterActivity.this,"用户已经存在",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                User user = new User(userNameTxt,userPwdTxt);
+                insertUser(user);
                 //需要接入接口
                 Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                 startActivity(intent);
                 Toast.makeText(RegisterActivity.this,"登录成功", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    private boolean checkUserExist(String userName) {
+        UserDao userDao = ((MyApplication)getApplication()).daoSession.getUserDao();
+        User user = userDao.load(userName);
+        return user != null;
+    }
+
+    private void insertUser(User user) {
+        UserDao userDao = ((MyApplication)getApplication()).daoSession.getUserDao();
+        userDao.insert(user);
     }
 }

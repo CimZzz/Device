@@ -54,11 +54,28 @@ public class LoginActivity extends Activity {
                     return;
                 }
 
-                //需要接入接口
+                User user = checkUserValid(userNameTxt,userPwdTxt);
+                if(user == null) {
+                    Toast.makeText(LoginActivity.this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
                 Toast.makeText(LoginActivity.this,"登录成功", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    private User checkUserValid(String userName,String userPwd) {
+        UserDao userDao = ((MyApplication)getApplication()).daoSession.getUserDao();
+        User user = userDao.load(userName);
+        if(user == null)
+            return null;
+
+        if(user.getUserPwd().equals(userPwd))
+            return user;
+        else return null;
     }
 }

@@ -78,6 +78,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
         TextView deviceDesc;
         TextView deviceStatus;
         View deviceSwitch;
+        View deviceEdit;
         View deviceDel;
 
 
@@ -87,7 +88,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
             deviceDesc = (TextView) itemView.findViewById(R.id.deviceDesc);
             deviceStatus = (TextView) itemView.findViewById(R.id.deviceStatus);
             deviceSwitch = itemView.findViewById(R.id.deviceSwitch);
+            deviceEdit = itemView.findViewById(R.id.deviceEdit);
             deviceDel = itemView.findViewById(R.id.deviceDel);
+
+            deviceEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callback.onEdit(bindDevice);
+                }
+            });
 
             deviceDel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -108,5 +117,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
     public interface Callback {
         void onSwitch(Device device);
         void onDel(Device device);
+        void onEdit(Device device);
     }
 }
