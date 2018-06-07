@@ -109,19 +109,19 @@ public class SearchActivity extends ActionBarUI {
     }
 
     private List<Device> getSaveDeviceList() {
-        DeviceDao deviceDao = ((MyApplication)getApplication()).daoSession.getDeviceDao();
+        DeviceDao deviceDao = ((NewApplication)getApplication()).daoSession.getDeviceDao();
         return deviceDao.loadAll();
     }
 
     private void insertDevice(Device device) {
         if(device == null)
             return;
-        DeviceDao deviceDao = ((MyApplication)getApplication()).daoSession.getDeviceDao();
+        DeviceDao deviceDao = ((NewApplication)getApplication()).daoSession.getDeviceDao();
         deviceDao.insertOrReplace(device);
     }
 
     private void refresh() {
-        OkHttpClient client = ((MyApplication)getApplication()).client;
+        OkHttpClient client = ((NewApplication)getApplication()).client;
         client.newCall(new Request.Builder()
                 .url("http://104.224.163.27:8080/ble/servlet/QueryDevicesServlet")
                 .build()).enqueue(new Callback() {

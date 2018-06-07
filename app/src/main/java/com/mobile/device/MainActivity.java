@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarUI {
                 final SVProgressHUD loadBar = new SVProgressHUD(MainActivity.this);
                 loadBar.showWithStatus("修改设备状态中请稍后");
                 final boolean afterStatus = !device.isOpen;
-                OkHttpClient client = ((MyApplication)getApplication()).client;
+                OkHttpClient client = ((NewApplication)getApplication()).client;
                 client.newCall(new Request.Builder()
                         .url("http://104.224.163.27:8080/ble/servlet/UpdateDevicesServlet")
                         .post(new FormBody.Builder()
@@ -104,7 +104,7 @@ public class MainActivity extends ActionBarUI {
                     public void onConfirm(final String descStr) {
                         final SVProgressHUD loadBar = new SVProgressHUD(MainActivity.this);
                         loadBar.showWithStatus("更改描述中请稍后");
-                        OkHttpClient client = ((MyApplication)getApplication()).client;
+                        OkHttpClient client = ((NewApplication)getApplication()).client;
                         client.newCall(new Request.Builder()
                                 .url("http://104.224.163.27:8080/ble/servlet/ModifyDevicesServlet")
                                 .post(new FormBody.Builder()
@@ -168,17 +168,17 @@ public class MainActivity extends ActionBarUI {
     }
 
     private List<Device> getSaveDeviceList() {
-        DeviceDao deviceDao = ((MyApplication)getApplication()).daoSession.getDeviceDao();
+        DeviceDao deviceDao = ((NewApplication)getApplication()).daoSession.getDeviceDao();
         return deviceDao.loadAll();
     }
 
     private void removeDevice(Device device) {
-        DeviceDao deviceDao = ((MyApplication)getApplication()).daoSession.getDeviceDao();
+        DeviceDao deviceDao = ((NewApplication)getApplication()).daoSession.getDeviceDao();
         deviceDao.delete(device);
     }
 
     private void updateDeviceStatus(Device device) {
-        DeviceDao deviceDao = ((MyApplication)getApplication()).daoSession.getDeviceDao();
+        DeviceDao deviceDao = ((NewApplication)getApplication()).daoSession.getDeviceDao();
         deviceDao.update(device);
     }
 }

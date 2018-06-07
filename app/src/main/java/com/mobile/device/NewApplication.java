@@ -10,7 +10,7 @@ import okhttp3.OkHttpClient;
  * Since : YIQIMMM_2.04<br>
  * Description:<br>
  */
-public class MyApplication extends Application {
+public class NewApplication extends Application {
     public DaoSession daoSession;
     public OkHttpClient client;
 

@@ -67,13 +67,13 @@ public class RegisterActivity extends Activity {
 
 
     private boolean checkUserExist(String userName) {
-        UserDao userDao = ((MyApplication)getApplication()).daoSession.getUserDao();
+        UserDao userDao = ((NewApplication)getApplication()).daoSession.getUserDao();
         User user = userDao.load(userName);
         return user != null;
     }
 
     private void insertUser(User user) {
-        UserDao userDao = ((MyApplication)getApplication()).daoSession.getUserDao();
+        UserDao userDao = ((NewApplication)getApplication()).daoSession.getUserDao();
         userDao.insert(user);
     }
 }

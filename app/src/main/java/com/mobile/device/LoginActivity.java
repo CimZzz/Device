@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
 
 
     private User checkUserValid(String userName,String userPwd) {
-        UserDao userDao = ((MyApplication)getApplication()).daoSession.getUserDao();
+        UserDao userDao = ((NewApplication)getApplication()).daoSession.getUserDao();
         User user = userDao.load(userName);
         if(user == null)
             return null;

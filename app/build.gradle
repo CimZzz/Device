@@ -12,7 +12,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.mobile.device"
-        minSdkVersion 15
+        minSdkVersion 9
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -31,6 +31,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support:recyclerview-v7:25.0.0'
     //GreenDAO
+    compile 'org.greenrobot:greendao:3.0.1'
     compile 'org.greenrobot:greendao:3.0.1'
     //OKHTTP
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
