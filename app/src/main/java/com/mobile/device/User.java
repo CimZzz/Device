@@ -10,6 +10,7 @@ import org.greenrobot.greendao.annotation.Keep;
 /**
  * Created by CimZzz on 2018/4/26.<br>
  * Description:<br>
+ * 用户数据类
  */
 @Entity
 public class User implements Serializable {

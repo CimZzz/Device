@@ -9,6 +9,7 @@ import java.io.Serializable;
 /**
  * Created by CimZzz on 2018/5/29.<br>
  * Description:<br>
+ * 设备数据类
  */
 @Entity
 public class Device implements Serializable {

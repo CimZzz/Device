@@ -12,6 +12,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 @SuppressWarnings("unused")
+/**
+ * 带有ActionBar的Activity基类
+ */
 public abstract class ActionBarUI extends AppCompatActivity {
     private static final int ACTIONBAR_DEFAULT_DP = 50;
     private static Integer actionBarHeight;

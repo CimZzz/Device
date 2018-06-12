@@ -6,9 +6,8 @@ import okhttp3.OkHttpClient;
 
 /**
  * Created by CimZzz on 2018/5/29.<br>
- * Project Name : YIQIMMM<br>
- * Since : YIQIMMM_2.04<br>
  * Description:<br>
+ * 自定义Application类，程序入口
  */
 public class NewApplication extends Application {
     public DaoSession daoSession;

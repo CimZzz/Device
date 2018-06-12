@@ -23,9 +23,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -65,39 +65,58 @@
                 android:textSize="12sp"
                 android:id="@+id/deviceStatus"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_switch"
-                android:padding="3dp"
-                android:text="开关"
-                android:textColor="#FFF"
-                android:textSize="10sp"
-                android:id="@+id/deviceSwitch"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_switch"
-                android:layout_marginTop="5dp"
-                android:padding="3dp"
-                android:text="编辑"
-                android:textColor="#FFF"
-                android:textSize="10sp"
-                android:id="@+id/deviceEdit"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_switch"
-                android:layout_marginTop="5dp"
-                android:padding="3dp"
-                android:text="删除"
-                android:textColor="#FFF"
-                android:textSize="10sp"
-                android:id="@+id/deviceDel"/>
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_switch"
+            android:padding="3dp"
+            android:text="开关"
+            android:textColor="#FFF"
+            android:textSize="10sp"
+            android:id="@+id/deviceSwitch"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_switch"
+            android:layout_marginLeft="10dp"
+            android:padding="3dp"
+            android:text="编辑"
+            android:textColor="#FFF"
+            android:textSize="10sp"
+            android:id="@+id/deviceEdit"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_switch"
+            android:layout_marginLeft="10dp"
+            android:padding="3dp"
+            android:text="定时"
+            android:textColor="#FFF"
+            android:textSize="10sp"
+            android:id="@+id/deviceAlarm"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_switch"
+            android:layout_marginLeft="10dp"
+            android:padding="3dp"
+            android:text="删除"
+            android:textColor="#FFF"
+            android:textSize="10sp"
+            android:id="@+id/deviceDel"/>
     </LinearLayout>
 
     <View

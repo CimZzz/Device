@@ -29,6 +29,15 @@
         <activity android:name=".SearchActivity"
             android:configChanges="orientation|keyboard">
         </activity>
+        <activity android:name=".AlarmActivity"
+            android:configChanges="orientation|keyboard">
+        </activity>
+
+        <service android:name=".AlarmService">
+            <intent-filter>
+                <action android:name="com.mobile.device.update"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

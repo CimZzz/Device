@@ -20,6 +20,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * 主界面
+ */
 public class MainActivity extends ActionBarUI {
     RecyclerView deviceList;
     View search;
@@ -148,6 +151,13 @@ public class MainActivity extends ActionBarUI {
                                 });
                     }
                 }).show(device);
+            }
+
+            @Override
+            public void onAlarm(Device device) {
+                Intent intent = new Intent(MainActivity.this,AlarmActivity.class);
+                intent.putExtra("device",device);
+                startActivity(intent);
             }
 
             @Override

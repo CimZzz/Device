@@ -12,9 +12,8 @@ import java.util.HashMap;
 
 /**
  * Created by CimZzz on 2018/4/3.<br>
- * Project Name : YIQIMMM<br>
- * Since : YIQIMMM_1.99<br>
  * Description:<br>
+ * 界面切换控件
  */
 public class RefreshHandlerView extends FrameLayout {
     private View errorView;

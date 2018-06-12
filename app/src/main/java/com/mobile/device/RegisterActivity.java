@@ -11,9 +11,8 @@ import android.widget.Toast;
 
 /**
  * Created by CimZzz on 2018/4/26.<br>
- * Project Name : YIQIMMM<br>
- * Since : YIQIMMM_1.99<br>
  * Description:<br>
+ * 注册界面
  */
 public class RegisterActivity extends Activity {
 

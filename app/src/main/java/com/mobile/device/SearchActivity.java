@@ -23,9 +23,8 @@ import okhttp3.Response;
 
 /**
  * Created by CimZzz on 2018/5/29.<br>
- * Project Name : YIQIMMM<br>
- * Since : YIQIMMM_2.04<br>
  * Description:<br>
+ * 搜索界面
  */
 public class SearchActivity extends ActionBarUI {
     RefreshHandlerView handlerView;

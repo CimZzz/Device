@@ -11,6 +11,7 @@ import android.widget.EditText;
  * Project Name : YIQIMMM<br>
  * Since : YIQIMMM_2.04<br>
  * Description:<br>
+ * 编辑设备描述对话框
  */
 public class EditDialog extends Dialog{
     Device device;

@@ -11,9 +11,8 @@ import java.util.List;
 
 /**
  * Created by CimZzz on 2018/5/29.<br>
- * Project Name : YIQIMMM<br>
- * Since : YIQIMMM_2.04<br>
  * Description:<br>
+ * 主界面列表的适配器
  */
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
     private List<Device> deviceList;
@@ -80,6 +79,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
         View deviceSwitch;
         View deviceEdit;
         View deviceDel;
+        View deviceAlarm;
 
 
         public ViewHolder(View itemView, final Callback callback) {
@@ -90,6 +90,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
             deviceSwitch = itemView.findViewById(R.id.deviceSwitch);
             deviceEdit = itemView.findViewById(R.id.deviceEdit);
             deviceDel = itemView.findViewById(R.id.deviceDel);
+            deviceDel = itemView.findViewById(R.id.deviceDel);
+            deviceAlarm = itemView.findViewById(R.id.deviceAlarm);
 
             deviceEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,6 +113,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
                     callback.onSwitch(bindDevice);
                 }
             });
+
+            deviceAlarm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callback.onAlarm(bindDevice);
+                }
+            });
         }
     }
 
@@ -118,5 +127,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{
         void onSwitch(Device device);
         void onDel(Device device);
         void onEdit(Device device);
+        void onAlarm(Device device);
     }
 }

@@ -12,9 +12,8 @@ import java.util.Set;
 
 /**
  * Created by CimZzz on 2018/5/29.<br>
- * Project Name : YIQIMMM<br>
- * Since : YIQIMMM_2.04<br>
  * Description:<br>
+ * 搜索界面列表的适配器
  */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     private List<Device> deviceList;

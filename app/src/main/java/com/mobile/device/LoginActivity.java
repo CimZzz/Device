@@ -12,6 +12,7 @@ import android.widget.Toast;
 /**
  * Created by CimZzz on 2018/4/25.<br>
  * Description:<br>
+ * 登录界面
  */
 public class LoginActivity extends Activity {
 
